@@ -1,0 +1,75 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:Avalonia.Notification.Samples.ViewModels"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:Avalonia.Notification.Controls;assembly=Avalonia.Notification"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Avalonia.Notification.Samples.Views.MainWindow"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="Avalonia.Notification.Samples">
+
+    <Design.DataContext>
+        <vm:MainWindowViewModel />
+    </Design.DataContext>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Column="1">
+            <controls:NotificationMessageContainer Manager="{Binding Manager}" />
+        </Border>
+        <StackPanel
+            Grid.Row="1"
+            Grid.Column="0"
+            Grid.ColumnSpan="3"
+            VerticalAlignment="Bottom"
+            Orientation="Horizontal">
+            <Button
+                Margin="8"
+                Padding="12,8"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#1751C3"
+                Command="{Binding ButtonBaseInfoOnClick}"
+                Content="Info message" />
+
+            <Button
+                Margin="8"
+                Padding="12,8"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#E0A030"
+                Command="{Binding ButtonBaseWarningOnClick}"
+                Content="Warning (with header)" />
+
+            <Button
+                Margin="8"
+                Padding="12,8"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#F15B19"
+                Command="{Binding ButtonBaseErrorOnClick}"
+                Content="Error message" />
+
+            <Button
+                Margin="8"
+                Padding="12,8"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Background="#1751C3"
+                Command="{Binding ButtonBaseInfoDelayOnClick}"
+                Content="Animated info message with delayed dismiss (5s)" />
+
+
+        </StackPanel>
+    </Grid>
+</Window>
