@@ -1,6 +1,6 @@
 # Notification.Avalonia
 
-Fork of ![this](https://github.com/Enterwell/Wpf.Notifications) repo
+Port of ![this](https://github.com/Enterwell/Wpf.Notifications) repo
 
 ---
 To start you should install NuGet package 
