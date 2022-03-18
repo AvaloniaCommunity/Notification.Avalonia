@@ -10,6 +10,10 @@
         <PackageLicenseUrl>https://github.com/AvaloniaCommunity/Avalonia.Notification/blob/master/LICENSE</PackageLicenseUrl>
         <RepositoryUrl>https://github.com/AvaloniaCommunity/Avalonia.Notification</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
+        <PackageId>Notification.Avalonia</PackageId>
+        <Title>Notification.Avalonia</Title>
+        <Authors>Lary</Authors>
+        <RootNamespace>Avalonia.Notification</RootNamespace>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">

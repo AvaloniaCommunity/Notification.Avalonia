@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Notification", "Avalonia.Notification\Avalonia.Notification.csproj", "{F1611A70-B069-4677-A8FB-F090CEF25C3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Notification.Avalonia", "Notification.Avalonia\Notification.Avalonia.csproj", "{F1611A70-B069-4677-A8FB-F090CEF25C3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Avalonia.Notification.Samples", "Avalonia.Notification.Samples\Avalonia.Notification.Samples.csproj", "{138B63D9-EF6A-4E7F-A40F-B5DC1A62B3A9}"
 EndProject

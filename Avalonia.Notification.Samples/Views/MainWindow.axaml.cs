@@ -12,11 +12,6 @@ namespace Avalonia.Notification.Samples.Views
         public MainWindow()
         {
             InitializeComponent();
-            this.AttachDevTools();
         }
-
-     
-
-      
     }
 }
