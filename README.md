@@ -8,6 +8,8 @@ Fork of ![this](https://github.com/Enterwell/Wpf.Notifications) repo
 
 ![](https://github.com/AvaloniaCommunity/Avalonia.Notification/blob/master/Images/Avalonia.Notification.gif)
 
+---
+
 For use:
 
 1. Add style in App.xaml
