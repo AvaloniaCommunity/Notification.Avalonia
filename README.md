@@ -17,7 +17,7 @@ For use:
 ```xml
 <Application.Styles>
         ...
-        <StyleInclude Source="avares://Avalonia.Notification/Themes/Generic.xaml" />
+        <StyleInclude Source="avares://Notification.Avalonia/Themes/Generic.xaml" />
 </Application.Styles>
 
 ```
