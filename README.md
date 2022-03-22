@@ -6,8 +6,8 @@ Port of ![this](https://github.com/Enterwell/Wpf.Notifications) repo
 To start you should install NuGet package 
 >   Install-Package Notification.Avalonia
 
-[![nuget](https://img.shields.io/badge/nuget-notification-blue)](https://www.nuget.org/packages/Notification.Avalonia/)]
-or download ![this](https://www.nuget.org/packages/Notification.Avalonia/) repo.
+[![nuget](https://img.shields.io/badge/nuget-notification-blue)](https://www.nuget.org/packages/Notification.Avalonia/)
+or download [![this](https://www.nuget.org/packages/Notification.Avalonia/) repo.
 
 ---
 
