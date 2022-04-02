@@ -10,7 +10,7 @@
     </Styles.Resources>
 
 
-    <Style Selector="TextBlock">
+    <Style Selector="TextBlock.notificationMessage">
         <Setter Property="FontSize" Value="11" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="White" />

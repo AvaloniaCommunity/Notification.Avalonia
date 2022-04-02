@@ -15,6 +15,7 @@ namespace Avalonia.Notification.Controls;
 /// <seealso cref="Control" />
 public class NotificationMessage : TemplatedControl, INotificationMessage, INotificationAnimation
 {
+    #region Properties
     /// <summary>
     /// Gets or sets the content of the overlay.
     /// </summary>
@@ -252,12 +253,13 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         set => SetValue(DismissAnimationProperty, value);
     }
 
-
     /// <summary>
     /// The animatable element used for show/hide animations.
     /// </summary>
     public INotificationAnimation AnimatableElement => this;
+    #endregion
 
+    #region StyleProperies
     /// <summary>
     /// Hide animation class
     /// </summary>
@@ -319,28 +321,6 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         AvaloniaProperty.Register<NotificationMessage, Brush>("AccentBrush");
 
     /// <summary>
-    /// Accents the brush property changed callback.
-    /// </summary>
-    /// <param name="dependencyObject">The dependency object.</param>
-    /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-    private static void AccentBrushPropertyChangedCallback(IAvaloniaObject dependencyObject,
-        AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
-    {
-        if (!(dependencyObject is NotificationMessage @this))
-            throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
-
-        if (@this.BadgeAccentBrush == null)
-        {
-            @this.BadgeAccentBrush = dependencyPropertyChangedEventArgs.NewValue as Brush;
-        }
-
-        if (@this.ButtonAccentBrush == null)
-        {
-            @this.ButtonAccentBrush = dependencyPropertyChangedEventArgs.NewValue as Brush;
-        }
-    }
-
-    /// <summary>
     /// The button accent brush property.
     /// </summary>
     public static readonly StyledProperty<Brush> ButtonAccentBrushProperty =
@@ -365,22 +345,6 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         AvaloniaProperty.Register<NotificationMessage, string>("BadgeText");
 
     /// <summary>
-    /// Badges the text property changed callback.
-    /// </summary>
-    /// <param name="dependencyObject">The dependency object.</param>
-    /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-    private static void BadgeTextPropertyChangedCallback(IAvaloniaObject dependencyObject,
-        AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
-    {
-        if (!(dependencyObject is NotificationMessage @this))
-            throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
-
-        @this.BadgeVisibility = dependencyPropertyChangedEventArgs.NewValue == null
-            ? false
-            : true;
-    }
-
-    /// <summary>
     /// The header visibility property.
     /// </summary>
     public static readonly StyledProperty<bool> HeaderVisibilityProperty =
@@ -391,21 +355,6 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// </summary>
     public static readonly StyledProperty<string> HeaderProperty =
         AvaloniaProperty.Register<NotificationMessage, string>("Header");
-
-    /// <summary>
-    /// Headers the property changes callback.
-    /// </summary>
-    /// <param name="dependencyObject">The dependency object.</param>
-    /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-    private static void HeaderPropertyChangesCallback(IAvaloniaObject dependencyObject,
-        AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
-    {
-        if (!(dependencyObject is NotificationMessage @this))
-            throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
-
-        @this.HeaderVisibility = dependencyPropertyChangedEventArgs.NewValue != null;
-    }
-
     /// <summary>
     /// The message visibility property.
     /// </summary>
@@ -419,20 +368,6 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         AvaloniaProperty.Register<NotificationMessage, string>("Message");
 
     /// <summary>
-    /// Messages the property changes callback.
-    /// </summary>
-    /// <param name="dependencyObject">The dependency object.</param>
-    /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-    private static void MessagePropertyChangesCallback(IAvaloniaObject dependencyObject,
-        AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
-    {
-        if (!(dependencyObject is NotificationMessage @this))
-            throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
-
-        @this.MessageVisibility = dependencyPropertyChangedEventArgs.NewValue != null;
-    }
-
-    /// <summary>
     /// The buttons property.
     /// </summary>
     public static readonly StyledProperty<ObservableCollection<object>> ButtonsProperty =
@@ -443,6 +378,87 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// </summary>
     public static readonly StyledProperty<bool> AnimatesProperty =
         AvaloniaProperty.Register<NotificationMessage, bool>("Animates");
+    #endregion
+
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="NotificationMessage" /> class.
+    /// </summary>
+    public NotificationMessage()
+    {
+        this.Buttons = new ObservableCollection<object>();
+        Background = new SolidColorBrush(new Color(100, 0, 0, 0));
+
+        this.Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as Brush;
+        this.Classes.Add("notificationMessage");
+    }
+
+    #region Methods
+    /// <summary>
+    /// Accents the brush property changed callback.
+    /// </summary>
+    /// <param name="dependencyObject">The dependency object.</param>
+    /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
+    private static void AccentBrushPropertyChangedCallback(IAvaloniaObject dependencyObject,
+        AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+    {
+        if (dependencyObject is not NotificationMessage @this)
+            throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
+
+        if (@this.BadgeAccentBrush == null)
+        {
+            @this.BadgeAccentBrush = dependencyPropertyChangedEventArgs.NewValue as Brush;
+        }
+
+        if (@this.ButtonAccentBrush == null)
+        {
+            @this.ButtonAccentBrush = dependencyPropertyChangedEventArgs.NewValue as Brush;
+        }
+    }
+    /// <summary>
+    /// Badges the text property changed callback.
+    /// </summary>
+    /// <param name="dependencyObject">The dependency object.</param>
+    /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
+    private static void BadgeTextPropertyChangedCallback(IAvaloniaObject dependencyObject,
+        AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+    {
+        if (dependencyObject is not NotificationMessage @this)
+            throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
+
+        @this.BadgeVisibility = dependencyPropertyChangedEventArgs.NewValue != null;
+    }
+
+    /// <summary>
+    /// Headers the property changes callback.
+    /// </summary>
+    /// <param name="dependencyObject">The dependency object.</param>
+    /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
+    private static void HeaderPropertyChangesCallback(IAvaloniaObject dependencyObject,
+        AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+    {
+        if (dependencyObject is not NotificationMessage @this)
+            throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
+
+        @this.HeaderVisibility = dependencyPropertyChangedEventArgs.NewValue != null;
+    }
+
+
+
+
+    /// <summary>
+    /// Messages the property changes callback.
+    /// </summary>
+    /// <param name="dependencyObject">The dependency object.</param>
+    /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
+    private static void MessagePropertyChangesCallback(IAvaloniaObject dependencyObject,
+        AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
+    {
+        if (dependencyObject is not NotificationMessage @this)
+            throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
+
+        @this.MessageVisibility = dependencyPropertyChangedEventArgs.NewValue != null;
+    }
 
     /// <summary>
     /// Initializes the <see cref="NotificationMessage" /> class.
@@ -456,16 +472,6 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         //TODO what is this
         // DefaultStyleKeyProperty.OverrideMetadata(typeof(NotificationMessage), new FrameworkPropertyMetadata(typeof(NotificationMessage)));
     }
+    #endregion
 
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="NotificationMessage" /> class.
-    /// </summary>
-    public NotificationMessage()
-    {
-        this.Buttons = new ObservableCollection<object>();
-        Background = new SolidColorBrush(new Color(100, 0, 0, 0));
-
-        this.Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as Brush;
-    }
 }
