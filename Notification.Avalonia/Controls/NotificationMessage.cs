@@ -467,5 +467,6 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         Background = new SolidColorBrush(new Color(100, 0, 0, 0));
 
         this.Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as Brush;
+        this.Classes.Add("notificationMessage");
     }
 }
