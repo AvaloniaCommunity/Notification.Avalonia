@@ -22,7 +22,7 @@ For use:
 ```xml
 <Application.Styles>
         ...
-        <StyleInclude Source="avares://Notification.Avalonia/Themes/Generic.xaml" />
+    <notification:NotificationStyle />
 </Application.Styles>
 
 ```
