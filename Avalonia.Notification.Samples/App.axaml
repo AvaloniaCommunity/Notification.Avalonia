@@ -1,14 +1,14 @@
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="using:Avalonia.Notification.Samples"
-             xmlns:notification="clr-namespace:Avalonia.Notification;assembly=Notification.Avalonia"
-             x:Class="Avalonia.Notification.Samples.App">
+             x:Class="Avalonia.Notification.Samples.App"
+             RequestedThemeVariant="Light">
     <Application.DataTemplates>
         <local:ViewLocator/>
     </Application.DataTemplates>
 
     <Application.Styles>
-        <FluentTheme Mode="Light"/>
-       <notification:NotificationStyle />
+        <FluentTheme  />
+        <StyleInclude Source="avares://Notification.Avalonia/Themes/Generic.xaml" />
     </Application.Styles>
 </Application>

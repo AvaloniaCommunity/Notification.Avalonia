@@ -38,7 +38,7 @@ namespace Avalonia.Notification
         /// <value>
         /// The badge accent brush.
         /// </value>
-        Brush BadgeAccentBrush { get; set; }
+        IBrush BadgeAccentBrush { get; set; }
 
         /// <summary>
         /// Gets or sets the badge text.
@@ -62,7 +62,7 @@ namespace Avalonia.Notification
         /// <value>
         /// The button accent brush.
         /// </value>
-        Brush ButtonAccentBrush { get; set; }
+        IBrush ButtonAccentBrush { get; set; }
 
         /// <summary>
         /// Gets or sets the buttons.
