@@ -18,7 +18,7 @@ public static class NotificationMessageBuilderLinq
     /// <returns>Returns the notification message builder.</returns>
     public static NotificationMessageBuilder Background(
         this NotificationMessageBuilder builder,
-        Brush backgroundBrush)
+        IBrush backgroundBrush)
     {
         builder.SetBackground(backgroundBrush);
 
@@ -29,7 +29,7 @@ public static class NotificationMessageBuilderLinq
         this NotificationMessageBuilder builder,
         string foregroundBrush)
     {
-        var brush = new BrushConverter().ConvertFrom(foregroundBrush) as Brush;
+        var brush = new BrushConverter().ConvertFrom(foregroundBrush) as IBrush;
         builder.SetForeground(brush);
 
         return builder;
@@ -45,7 +45,7 @@ public static class NotificationMessageBuilderLinq
         this NotificationMessageBuilder builder,
         string backgroundBrush)
     {
-        var brush = new BrushConverter().ConvertFrom(backgroundBrush) as Brush;
+        var brush = new BrushConverter().ConvertFrom(backgroundBrush) as IBrush;
         builder.SetBackground(brush);
 
         return builder;
@@ -59,7 +59,7 @@ public static class NotificationMessageBuilderLinq
     /// <returns>Returns the notification message builder.</returns>
     public static NotificationMessageBuilder Accent(
         this NotificationMessageBuilder builder,
-        Brush accentBrush)
+        IBrush accentBrush)
     {
         builder.SetAccent(accentBrush);
 
@@ -76,7 +76,7 @@ public static class NotificationMessageBuilderLinq
         this NotificationMessageBuilder builder,
         string accentBrush)
     {
-        var brush = new BrushConverter().ConvertFrom(accentBrush) as Brush;
+        var brush = new BrushConverter().ConvertFrom(accentBrush) as IBrush;
         builder.SetAccent(brush);
 
         return builder;

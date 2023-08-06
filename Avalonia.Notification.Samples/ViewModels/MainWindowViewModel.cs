@@ -19,7 +19,7 @@ namespace Avalonia.Notification.Samples.ViewModels
         /// </value>
         public INotificationMessageManager Manager { get; } = new NotificationMessageManager();
         
-           private void  ButtonBaseErrorOnClick()
+        public void  ButtonBaseErrorOnClick()
         {
             this.Manager
                 .CreateMessage()
@@ -41,7 +41,7 @@ namespace Avalonia.Notification.Samples.ViewModels
                 .Queue();
         }
 
-        private void ButtonBaseWarningOnClick()
+        public void ButtonBaseWarningOnClick()
         {
             this.Manager
                 .CreateMessage()
@@ -55,7 +55,7 @@ namespace Avalonia.Notification.Samples.ViewModels
                 .Queue();
         }
 
-        private void ButtonBaseInfoOnClick()
+        public void ButtonBaseInfoOnClick()
         {
             this.Manager
                 .CreateMessage()
@@ -69,7 +69,7 @@ namespace Avalonia.Notification.Samples.ViewModels
                 .Queue();
         }
 
-        private void ButtonBaseInfoDelayOnClick()
+        public void ButtonBaseInfoDelayOnClick()
         {
             this.Manager
                 .CreateMessage()

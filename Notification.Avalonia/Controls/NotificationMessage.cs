@@ -108,7 +108,7 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// </value>
     public IBrush AccentBrush
     {
-        get => (Brush)GetValue(AccentBrushProperty);
+        get => GetValue(AccentBrushProperty);
         set => SetValue(AccentBrushProperty, value);
     }
 
@@ -118,9 +118,9 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// <value>
     /// The button accent brush.
     /// </value>
-    public Brush ButtonAccentBrush
+    public IBrush ButtonAccentBrush
     {
-        get => (Brush)GetValue(ButtonAccentBrushProperty);
+        get => GetValue(ButtonAccentBrushProperty);
         set => SetValue(ButtonAccentBrushProperty, value);
     }
 
@@ -142,9 +142,9 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// <value>
     /// The badge accent brush.
     /// </value>
-    public Brush BadgeAccentBrush
+    public IBrush BadgeAccentBrush
     {
-        get => (Brush)GetValue(BadgeAccentBrushProperty);
+        get => GetValue(BadgeAccentBrushProperty);
         set => SetValue(BadgeAccentBrushProperty, value);
     }
 
@@ -315,15 +315,15 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// <summary>
     /// The accent brush property.
     /// </summary>
-    public static readonly StyledProperty<Brush> AccentBrushProperty =
-        AvaloniaProperty.Register<NotificationMessage, Brush>("AccentBrush");
+    public static readonly StyledProperty<IBrush> AccentBrushProperty =
+        AvaloniaProperty.Register<NotificationMessage, IBrush>("AccentBrush");
 
     /// <summary>
     /// Accents the brush property changed callback.
     /// </summary>
     /// <param name="dependencyObject">The dependency object.</param>
     /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-    private static void AccentBrushPropertyChangedCallback(IAvaloniaObject dependencyObject,
+    private static void AccentBrushPropertyChangedCallback(AvaloniaObject dependencyObject,
         AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
     {
         if (!(dependencyObject is NotificationMessage @this))
@@ -331,20 +331,20 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
 
         if (@this.BadgeAccentBrush == null)
         {
-            @this.BadgeAccentBrush = dependencyPropertyChangedEventArgs.NewValue as Brush;
+            @this.BadgeAccentBrush = dependencyPropertyChangedEventArgs.NewValue as IBrush;
         }
 
         if (@this.ButtonAccentBrush == null)
         {
-            @this.ButtonAccentBrush = dependencyPropertyChangedEventArgs.NewValue as Brush;
+            @this.ButtonAccentBrush = dependencyPropertyChangedEventArgs.NewValue as IBrush;
         }
     }
 
     /// <summary>
     /// The button accent brush property.
     /// </summary>
-    public static readonly StyledProperty<Brush> ButtonAccentBrushProperty =
-        AvaloniaProperty.Register<NotificationMessage, Brush>("ButtonAccentBrush");
+    public static readonly StyledProperty<IBrush> ButtonAccentBrushProperty =
+        AvaloniaProperty.Register<NotificationMessage, IBrush>("ButtonAccentBrush");
 
     /// <summary>
     /// The badge visibility property.
@@ -355,8 +355,8 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// <summary>
     /// The badge accent brush property.
     /// </summary>
-    public static readonly StyledProperty<Brush> BadgeAccentBrushProperty =
-        AvaloniaProperty.Register<NotificationMessage, Brush>("BadgeAccentBrush");
+    public static readonly StyledProperty<IBrush> BadgeAccentBrushProperty =
+        AvaloniaProperty.Register<NotificationMessage, IBrush>("BadgeAccentBrush");
 
     /// <summary>
     /// The badge text property.
@@ -369,7 +369,7 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// </summary>
     /// <param name="dependencyObject">The dependency object.</param>
     /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-    private static void BadgeTextPropertyChangedCallback(IAvaloniaObject dependencyObject,
+    private static void BadgeTextPropertyChangedCallback(AvaloniaObject dependencyObject,
         AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
     {
         if (!(dependencyObject is NotificationMessage @this))
@@ -397,7 +397,7 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// </summary>
     /// <param name="dependencyObject">The dependency object.</param>
     /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-    private static void HeaderPropertyChangesCallback(IAvaloniaObject dependencyObject,
+    private static void HeaderPropertyChangesCallback(AvaloniaObject dependencyObject,
         AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
     {
         if (!(dependencyObject is NotificationMessage @this))
@@ -423,7 +423,7 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// </summary>
     /// <param name="dependencyObject">The dependency object.</param>
     /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs" /> instance containing the event data.</param>
-    private static void MessagePropertyChangesCallback(IAvaloniaObject dependencyObject,
+    private static void MessagePropertyChangesCallback(AvaloniaObject dependencyObject,
         AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
     {
         if (!(dependencyObject is NotificationMessage @this))
@@ -466,7 +466,7 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         this.Buttons = new ObservableCollection<object>();
         Background = new SolidColorBrush(new Color(100, 0, 0, 0));
 
-        this.Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as Brush;
+        this.Foreground = new BrushConverter().ConvertFromString("#DDDDDD") as IBrush;
         this.Classes.Add("notificationMessage");
     }
 }

@@ -37,7 +37,7 @@ namespace Avalonia.Notification.Controls
         /// <param name="dependencyObject">The dependency object.</param>
         /// <param name="dependencyPropertyChangedEventArgs">The <see cref="DependencyPropertyChangedEventArgs"/> instance containing the event data.</param>
         /// <exception cref="NullReferenceException">Dependency object is not of valid type - expected NotificationMessageContainer.</exception>
-        private static void ManagerPropertyChangedCallback(IAvaloniaObject dependencyObject,
+        private static void ManagerPropertyChangedCallback(AvaloniaObject dependencyObject,
             AvaloniaPropertyChangedEventArgs dependencyPropertyChangedEventArgs)
         {
             if (!(dependencyObject is NotificationMessageContainer @this))
@@ -88,7 +88,7 @@ namespace Avalonia.Notification.Controls
 
         private void RemoveMessage(INotificationMessage message)
         {
-            (this.Items as AvaloniaList<object>).Remove(message);
+            (this.Items).Remove(message);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace Avalonia.Notification.Controls
                 throw new InvalidOperationException(
                     "Can't use both ItemsSource and Items collection at the same time.");*/
 
-            (this.Items as AvaloniaList<object>).Add(args.Message);
+            (this.Items).Add(args.Message);
 
             if (args.Message is INotificationAnimation animatableMessage)
             {

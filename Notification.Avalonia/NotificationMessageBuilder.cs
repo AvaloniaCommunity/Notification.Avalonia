@@ -76,7 +76,7 @@ public class NotificationMessageBuilder
     /// Sets the accent.
     /// </summary>
     /// <param name="accentBrush">The accent brush.</param>
-    public void SetAccent(Brush accentBrush)
+    public void SetAccent(IBrush accentBrush)
     {
         this.Message.AccentBrush = accentBrush;
     }
@@ -177,7 +177,7 @@ public class NotificationMessageBuilder
     /// <summary>
     /// Sets the text brush.
     /// </summary>
-    public void SetForeground(Brush brush)
+    public void SetForeground(IBrush brush)
     {
         this.Message.Foreground = brush;
     }
@@ -186,7 +186,7 @@ public class NotificationMessageBuilder
     /// Sets the background.
     /// </summary>
     /// <param name="backgroundBrush">The background brush.</param>
-    public void SetBackground(Brush backgroundBrush)
+    public void SetBackground(IBrush backgroundBrush)
     {
         this.Message.Background = backgroundBrush;
     }
