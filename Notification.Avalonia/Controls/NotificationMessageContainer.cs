@@ -2,6 +2,7 @@
 using Avalonia.Animation;
 using Avalonia.Collections;
 using Avalonia.Controls;
+using Avalonia.Reactive;
 
 namespace Avalonia.Notification.Controls
 {
@@ -119,7 +120,9 @@ namespace Avalonia.Notification.Controls
         /// </summary>
         static NotificationMessageContainer()
         {
-            ManagerProperty.Changed.Subscribe(x => ManagerPropertyChangedCallback(x.Sender, x));
+            ManagerProperty.Changed.Subscribe(
+                new AnonymousObserver<AvaloniaPropertyChangedEventArgs<NotificationMessageManager>>(
+                    x => ManagerPropertyChangedCallback(x.Sender, x)));
             //DefaultStyleKeyProperty.OverrideMetadata(typeof(NotificationMessageContainer), new FrameworkPropertyMetadata(typeof(NotificationMessageContainer)));
         }
     }

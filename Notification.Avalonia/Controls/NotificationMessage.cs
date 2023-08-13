@@ -4,6 +4,7 @@ using Avalonia.Controls;
 using Avalonia.Controls.Presenters;
 using Avalonia.Controls.Primitives;
 using Avalonia.Media;
+using Avalonia.Reactive;
 using Avalonia.Styling;
 
 namespace Avalonia.Notification.Controls;
@@ -449,10 +450,10 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
     /// </summary>
     static NotificationMessage()
     {
-        AccentBrushProperty.Changed.Subscribe(x => AccentBrushPropertyChangedCallback(x.Sender, x));
-        BadgeTextProperty.Changed.Subscribe(x => BadgeTextPropertyChangedCallback(x.Sender, x));
-        MessageProperty.Changed.Subscribe(x => MessagePropertyChangesCallback(x.Sender, x));
-        HeaderProperty.Changed.Subscribe(x => HeaderPropertyChangesCallback(x.Sender, x));
+        AccentBrushProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<IBrush>>(x => AccentBrushPropertyChangedCallback(x.Sender, x)));
+        BadgeTextProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<string>>(x => BadgeTextPropertyChangedCallback(x.Sender, x)));
+        MessageProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<string>>(x => MessagePropertyChangesCallback(x.Sender, x)));
+        HeaderProperty.Changed.Subscribe(new AnonymousObserver<AvaloniaPropertyChangedEventArgs<string>>(x => HeaderPropertyChangesCallback(x.Sender, x)));
         //TODO what is this
         // DefaultStyleKeyProperty.OverrideMetadata(typeof(NotificationMessage), new FrameworkPropertyMetadata(typeof(NotificationMessage)));
     }
