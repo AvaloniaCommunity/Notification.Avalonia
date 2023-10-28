@@ -14,7 +14,7 @@
         <Title>Notification.Avalonia</Title>
         <Authors>Lary</Authors>
         <RootNamespace>Avalonia.Notification</RootNamespace>
-        <PackageVersion>2.0.0</PackageVersion>
+        <PackageVersion>2.0.1</PackageVersion>
     </PropertyGroup>
     <ItemGroup>
         <AvaloniaResource Include="**\*.xaml">
@@ -26,6 +26,6 @@
         </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.2" />
+        <PackageReference Include="Avalonia" Version="11.0.5" />
     </ItemGroup>
 </Project>
