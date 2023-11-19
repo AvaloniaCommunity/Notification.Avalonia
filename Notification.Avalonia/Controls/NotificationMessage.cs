@@ -330,15 +330,9 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         if (!(dependencyObject is NotificationMessage @this))
             throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
 
-        if (@this.BadgeAccentBrush == null)
-        {
-            @this.BadgeAccentBrush = dependencyPropertyChangedEventArgs.NewValue as IBrush;
-        }
+        @this.BadgeAccentBrush ??= dependencyPropertyChangedEventArgs.NewValue as IBrush;
 
-        if (@this.ButtonAccentBrush == null)
-        {
-            @this.ButtonAccentBrush = dependencyPropertyChangedEventArgs.NewValue as IBrush;
-        }
+        @this.ButtonAccentBrush ??= dependencyPropertyChangedEventArgs.NewValue as IBrush;
     }
 
     /// <summary>
@@ -376,9 +370,7 @@ public class NotificationMessage : TemplatedControl, INotificationMessage, INoti
         if (!(dependencyObject is NotificationMessage @this))
             throw new NullReferenceException("Dependency object is not of valid type " + nameof(NotificationMessage));
 
-        @this.BadgeVisibility = dependencyPropertyChangedEventArgs.NewValue == null
-            ? false
-            : true;
+        @this.BadgeVisibility = dependencyPropertyChangedEventArgs.NewValue != null;
     }
 
     /// <summary>
