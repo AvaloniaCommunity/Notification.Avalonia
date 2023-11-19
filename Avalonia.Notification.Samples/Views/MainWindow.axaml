@@ -69,7 +69,6 @@
                 Command="{Binding ButtonBaseInfoDelayOnClick}"
                 Content="Animated info message with delayed dismiss (5s)" />
 
-
         </StackPanel>
     </Grid>
 </Window>

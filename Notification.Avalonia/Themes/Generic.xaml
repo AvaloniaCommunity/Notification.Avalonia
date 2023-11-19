@@ -195,6 +195,7 @@
                                 <Grid
                                     x:Name="badgeGrid"
                                     Grid.Column="0"
+                                    Margin="0,-8,0,0"
                                     HorizontalAlignment="Stretch"
                                     VerticalAlignment="Stretch">
                                     <Grid.RowDefinitions>
