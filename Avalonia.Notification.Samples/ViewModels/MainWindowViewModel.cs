@@ -66,6 +66,7 @@ namespace Avalonia.Notification.Samples.ViewModels
                 .Dismiss().WithButton("Update now", button => { })
                 .Dismiss().WithButton("Release notes", button => { })
                 .Dismiss().WithButton("Later", button => { })
+                .WithCloseButton()
                 .Queue();
         }
 
