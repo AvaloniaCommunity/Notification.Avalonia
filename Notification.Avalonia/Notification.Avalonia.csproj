@@ -20,12 +20,12 @@
         <AvaloniaResource Include="**\*.xaml">
             <SubType>Designer</SubType>
         </AvaloniaResource>
-        <AvaloniaResource Include="Assets\*"/>
+        <AvaloniaResource Include="Assets\*" />
         <AvaloniaResource Update="Views\MsBoxInputWindow.xaml">
             <SubType>Designer</SubType>
         </AvaloniaResource>
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.9" />
+        <PackageReference Include="Avalonia" Version="12.1.6" />
     </ItemGroup>
 </Project>

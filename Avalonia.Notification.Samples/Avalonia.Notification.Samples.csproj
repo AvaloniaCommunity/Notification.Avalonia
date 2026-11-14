@@ -3,6 +3,7 @@
         <OutputType>WinExe</OutputType>
         <TargetFrameworks>net8.0;net9.0</TargetFrameworks>
         <Nullable>enable</Nullable>
+        <AvaloniaUseCompiledBindingsByDefault>false</AvaloniaUseCompiledBindingsByDefault>
         <!--Avalonia doesen't support TrimMode=link currently,but we are working on that https://github.com/AvaloniaUI/Avalonia/issues/6892 -->
         <TrimMode>copyused</TrimMode>
         <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
@@ -19,12 +20,10 @@
         <TrimmableAssembly Include="Avalonia.Themes.Default" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Avalonia" Version="11.0.9" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.9" />
-        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
-        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="11.0.9" />
-        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.9" />
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.9" />
+                <PackageReference Include="Avalonia" Version="12.1.6" />
+                <PackageReference Include="Avalonia.Desktop" Version="12.1.6" />
+                <PackageReference Include="ReactiveUI.Avalonia" Version="12.1.6" />
+                <PackageReference Include="Avalonia.Themes.Fluent" Version="12.1.6" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\Notification.Avalonia\Notification.Avalonia.csproj" />

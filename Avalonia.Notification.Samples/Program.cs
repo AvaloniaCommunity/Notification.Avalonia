@@ -1,7 +1,7 @@
 ﻿using System;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
-using Avalonia.ReactiveUI;
+using ReactiveUI.Avalonia;
 
 namespace Avalonia.Notification.Samples
 {
@@ -19,6 +19,6 @@ namespace Avalonia.Notification.Samples
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
                 .LogToTrace()
-                .UseReactiveUI();
+                .UseReactiveUI(rxui => { });
     }
 }

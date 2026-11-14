@@ -2,3 +2,4 @@
 Notification.Avalonia/obj
 .idea
 *.user
+.vscode/settings.json
